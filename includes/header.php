@@ -1,0 +1,1 @@
+<html><head><title>CVWA - College Vulnerable Web Application</title></head><body><h1>Welcome to CVWA</h1>
