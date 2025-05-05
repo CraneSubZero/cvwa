@@ -1,0 +1,340 @@
+/* 
+   CVWA (College Vulnerable Web Application)
+   Custom styles with Reddit-like color scheme
+*/
+
+:root {
+    /* Light Mode Colors (Reddit-inspired) */
+    --light-bg: #f8f9fa;
+    --light-content-bg: #ffffff;
+    --light-text: #1a1a1b;
+    --light-link: #0079d3;
+    --light-link-hover: #0061a9;
+    --light-nav-bg: #ffffff;
+    --light-border: #edeff1;
+    --light-accent: #ff4500;
+    --light-secondary: #dae0e6;
+    --light-card-bg: #ffffff;
+    --light-input-bg: #f6f7f8;
+    --light-button-bg: #0079d3;
+    --light-button-text: #ffffff;
+
+    /* Dark Mode Colors (Reddit dark theme inspired) */
+    --dark-bg: #1a1a1b;
+    --dark-content-bg: #272729;
+    --dark-text: #d7dadc;
+    --dark-link: #4fbcff;
+    --dark-link-hover: #61c3ff;
+    --dark-nav-bg: #1a1a1b;
+    --dark-border: #343536;
+    --dark-accent: #ff4500;
+    --dark-secondary: #2d2d2d;
+    --dark-card-bg: #1e1e1e;
+    --dark-input-bg: #272729;
+    --dark-button-bg: #d7dadc;
+    --dark-button-text: #1a1a1b;
+}
+
+/* Base styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Light Mode */
+body.light-mode {
+    background-color: var(--light-bg);
+    color: var(--light-text);
+}
+
+/* Dark Mode */
+body.dark-mode {
+    background-color: var(--dark-bg);
+    color: var(--dark-text);
+}
+
+/* Navbar Styling */
+.navbar-themed {
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.light-mode .navbar-themed {
+    background-color: var(--light-nav-bg);
+}
+
+.dark-mode .navbar-themed {
+    background-color: var(--dark-nav-bg);
+}
+
+.light-mode .navbar-brand,
+.light-mode .nav-link {
+    color: var(--light-text);
+}
+
+.dark-mode .navbar-brand,
+.dark-mode .nav-link {
+    color: var(--dark-text);
+}
+
+/* Card Styling */
+.light-mode .card {
+    background-color: var(--light-card-bg);
+    border: 1px solid var(--light-border);
+}
+
+.dark-mode .card {
+    background-color: var(--dark-card-bg);
+    border: 1px solid var(--dark-border);
+}
+
+.light-mode .card-header {
+    background-color: var(--light-secondary);
+    border-bottom: 1px solid var(--light-border);
+}
+
+.dark-mode .card-header {
+    background-color: var(--dark-secondary);
+    border-bottom: 1px solid var(--dark-border);
+}
+
+/* Form Controls */
+.light-mode .form-control {
+    background-color: var(--light-input-bg);
+    border: 1px solid var(--light-border);
+    color: var(--light-text);
+}
+
+.dark-mode .form-control {
+    background-color: var(--dark-input-bg);
+    border: 1px solid var(--dark-border);
+    color: var(--dark-text);
+}
+
+/* Button Styling */
+.btn-themed {
+    transition: all 0.3s;
+}
+
+.light-mode .btn-themed {
+    background-color: var(--light-button-bg);
+    color: var(--light-button-text);
+}
+
+.dark-mode .btn-themed {
+    background-color: var(--dark-button-bg);
+    color: var(--dark-button-text);
+}
+
+/* Links */
+.light-mode a {
+    color: var(--light-link);
+}
+
+.light-mode a:hover {
+    color: var(--light-link-hover);
+}
+
+.dark-mode a {
+    color: var(--dark-link);
+}
+
+.dark-mode a:hover {
+    color: var(--dark-link-hover);
+}
+
+/* List Group */
+.light-mode .list-group-item {
+    background-color: var(--light-card-bg);
+    border-color: var(--light-border);
+}
+
+.dark-mode .list-group-item {
+    background-color: var(--dark-card-bg);
+    border-color: var(--dark-border);
+    color: var(--dark-text);
+}
+
+/* Tables */
+.light-mode .table {
+    color: var(--light-text);
+}
+
+.dark-mode .table {
+    color: var(--dark-text);
+}
+
+.dark-mode .table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Dropdowns */
+.light-mode .dropdown-menu {
+    background-color: var(--light-card-bg);
+    border-color: var(--light-border);
+}
+
+.dark-mode .dropdown-menu {
+    background-color: var(--dark-card-bg);
+    border-color: var(--dark-border);
+}
+
+.light-mode .dropdown-item {
+    color: var(--light-text);
+}
+
+.dark-mode .dropdown-item {
+    color: var(--dark-text);
+}
+
+.dark-mode .dropdown-item:hover,
+.dark-mode .dropdown-item:focus {
+    background-color: var(--dark-secondary);
+}
+
+/* Footer */
+.footer {
+    padding: 1rem 0;
+    margin-top: 2rem;
+}
+
+.light-mode .footer {
+    background-color: var(--light-secondary);
+    color: var(--light-text);
+}
+
+.dark-mode .footer {
+    background-color: var(--dark-secondary);
+    color: var(--dark-text);
+}
+
+/* Main content wrapper */
+.main-content {
+    min-height: calc(100vh - 160px);
+    padding: 20px 0;
+}
+
+/* Code blocks for guides */
+pre {
+    padding: 1rem;
+    border-radius: 5px;
+    overflow-x: auto;
+}
+
+.light-mode pre {
+    background-color: #f1f1f1;
+    border: 1px solid #ddd;
+}
+
+.dark-mode pre {
+    background-color: #2d2d2d;
+    border: 1px solid #444;
+}
+
+/* Vulnerability section styling */
+.vulnerability-container {
+    margin-bottom: 2rem;
+}
+
+.vulnerability-description {
+    margin-bottom: 1.5rem;
+}
+
+.vulnerability-controls {
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+.light-mode .vulnerability-controls {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+}
+
+.dark-mode .vulnerability-controls {
+    background-color: #2d2d2d;
+    border: 1px solid #444;
+}
+
+/* Difficulty level indicator */
+.difficulty-level {
+    display: inline-block;
+    padding: 0.25em 0.6em;
+    font-size: 0.75rem;
+    font-weight: bold;
+    border-radius: 0.25rem;
+    text-transform: uppercase;
+    margin-left: 0.5rem;
+}
+
+.difficulty-low {
+    background-color: #28a745;
+    color: white;
+}
+
+.difficulty-medium {
+    background-color: #ffc107;
+    color: black;
+}
+
+.difficulty-high {
+    background-color: #dc3545;
+    color: white;
+}
+
+/* Code syntax highlighting */
+.code-block {
+    position: relative;
+    margin: 1rem 0;
+}
+
+.code-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.light-mode .code-header {
+    background-color: #e9ecef;
+    border: 1px solid #dee2e6;
+    border-bottom: none;
+}
+
+.dark-mode .code-header {
+    background-color: #343a40;
+    border: 1px solid #495057;
+    border-bottom: none;
+}
+
+/* Highlight new changes in code samples */
+.highlight-line {
+    display: block;
+}
+
+.light-mode .highlight-line {
+    background-color: #fffbdd;
+}
+
+.dark-mode .highlight-line {
+    background-color: #41324d;
+}
+
+/* Exercise results display */
+.result-container {
+    padding: 1rem;
+    margin-top: 1rem;
+    border-radius: 5px;
+}
+
+.light-mode .result-container {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+}
+
+.dark-mode .result-container {
+    background-color: #2d2d2d;
+    border: 1px solid #444;
+}

@@ -1,25 +1,21 @@
+// FILE: login.php
+// FIX: Added session_start() at top and improved security level check
+
 <?php
-include('config/config.php');
-session_start();
+session_start(); // ADDED: Required for authentication
+include('includes/config.php');
+include('includes/functions.php');
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-
-    // Vulnerable SQL (no sanitization)
-    $query = "SELECT * FROM users WHERE username = '$username' AND password = '$password'";
-    $result = mysqli_query($conn, $query);
-
-    if (mysqli_num_rows($result) === 1) {
-        $_SESSION['username'] = $username;
-        header("Location: index.php");
-    } else {
-        echo "Invalid credentials.";
-    }
+// Check if already logged in
+if (isLoggedIn()) {
+    header('Location: index.php');
+    exit();
 }
+
+// FIX: Initialize security level if not set
+if (!isset($_SESSION['security_level'])) {
+    $_SESSION['security_level'] = 0;
+}
+
+[... rest of your existing login.php code ...]
 ?>
-<form method="POST">
-    <label>Username: <input type="text" name="username"></label>
-    <label>Password: <input type="password" name="password"></label>
-    <button type="submit">Login</button>
-</form>
