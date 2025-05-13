@@ -55,18 +55,22 @@ function sanitizeInput(string $input, string $type = 'string'): string {
     };
 }
 
+// ===== FIXED FUNCTION ===== (Original error was here)
 /**
- * Log user activity
+ * Log user activity (now accepts int|string for user ID)
  */
-function logActivity(int $userId, string $action, string $details = ''): bool {
+function logActivity($userId, string $action, string $details = ''): bool {
     global $conn;
+    
+    // Convert string IDs to integers (e.g., 'C' → 0 for guests)
+    $userIdInt = is_numeric($userId) ? (int)$userId : 0;
     
     $stmt = $conn->prepare("INSERT INTO activity_logs 
         (user_id, action, details, ip_address, user_agent, created_at) 
         VALUES (?, ?, ?, ?, ?, NOW())");
     
     $stmt->bind_param("issss", 
-        $userId,
+        $userIdInt,  // Now ensures an integer is passed to MySQL
         $action,
         $details,
         $_SERVER['REMOTE_ADDR'] ?? 'unknown',

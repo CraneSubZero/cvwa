@@ -1,10 +1,10 @@
-// FILE: register.php
-// IMPROVED: Added proper structure and security
-
 <?php
 session_start();
 include('includes/config.php');
 include('includes/functions.php');
+
+// FILE: register.php
+// IMPROVED: Added proper structure and security
 
 // Check if already logged in
 if (isLoggedIn()) {
